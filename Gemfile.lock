@@ -1,0 +1,29 @@
+PATH
+  remote: .
+  specs:
+    data_distributor (0.1.0)
+      faraday (~> 1.1.0)
+      json
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    faraday (1.1.0)
+      multipart-post (>= 1.2, < 3)
+      ruby2_keywords
+    json (2.6.1)
+    minitest (5.15.0)
+    multipart-post (2.1.1)
+    rake (13.0.6)
+    ruby2_keywords (0.0.5)
+
+PLATFORMS
+  -darwin-21
+
+DEPENDENCIES
+  data_distributor!
+  minitest
+  rake
+
+BUNDLED WITH
+   2.3.15

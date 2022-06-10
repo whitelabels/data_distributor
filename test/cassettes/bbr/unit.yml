@@ -1,0 +1,42 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://services.datafordeler.dk/BBR/BBRPublic/1/rest/enhed?AdresseIdentificerer=0a3f50c1-f404-32b8-e044-0003ba298018
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.3.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - private
+      Transfer-Encoding:
+      - chunked
+      Content-Type:
+      - application/json; charset=UTF-8
+      Server:
+      - datafordeler.dk
+      Switchboardperformanceinms:
+      - '205.9055'
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Powered-By:
+      - datafordeler.dk
+      Date:
+      - Wed, 02 Jun 2021 11:42:20 GMT
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        W3siZGF0YWZvcmRlbGVyT3BkYXRlcmluZ3N0aWQiOiIyMDIxLTA0LTAzVDE2OjQzOjAxLjQ3MjI5MiswMjowMCIsImFkcmVzc2VJZGVudGlmaWNlcmVyIjoiMGEzZjUwYzEtZjQwNC0zMmI4LWUwNDQtMDAwM2JhMjk4MDE4IiwiZW5oMDIwRW5oZWRlbnNBbnZlbmRlbHNlIjoiMTIwIiwiZW5oMDIzQm9saWd0eXBlIjoiMSIsImVuaDAyNEtvbmRlbW5lcmV0Qm9saWdlbmhlZCI6IjAiLCJlbmgwMjVPcHJldHRlbHNlc2RhdG9Gb3JFbmhlZGVuc0lkZW50aWZpa2F0aW9uIjoiMTk4MC0wMi0yMFQwMDowMDowMC4wMDAwMDArMDE6MDAiLCJlbmgwMjZFbmhlZGVuc1NhbWxlZGVBcmVhbCI6MTc3LCJlbmgwMjdBcmVhbFRpbEJlYm9lbHNlIjoxNzcsImVuaDAzMEtpbGRlVGlsRW5oZWRlbnNBcmVhbGVyIjoiMiIsImVuaDAzMUFudGFsVsOmcmVsc2VyIjo3LCJlbmgwMzJUb2lsZXRmb3Job2xkIjoiVCIsImVuaDAzM0JhZGVmb3Job2xkIjoiViIsImVuaDAzNEvDuGtrZW5mb3Job2xkIjoiRSIsImVuaDAzNUVuZXJnaWZvcnN5bmluZyI6IjIiLCJlbmgwNDVVZGxlam5pbmdzZm9yaG9sZCI6IjIiLCJlbmgwNDhHb2RrZW5kdFRvbUJvbGlnIjoiMCIsImVuaDA2NUFudGFsVmFuZHNreWxsZWRlVG9pbGV0dGVyIjoyLCJlbmgwNjZBbnRhbEJhZGV2w6ZyZWxzZXIiOjIsImVuaDA3MUFkcmVzc2VGdW5rdGlvbiI6IjAiLCJldGFnZSI6IjdjYmE3ODc2LTg0NDgtNDA2YS1hNjQ0LTJjZDhiMmJiMmY0MyIsImZvcnJldG5pbmdzaMOmbmRlbHNlIjoiRW5oZWQiLCJmb3JyZXRuaW5nc29tcsOlZGUiOiI1NC4xNS4wNS4wNSIsImZvcnJldG5pbmdzcHJvY2VzIjoiMCIsImlkX2xva2FsSWQiOiI0MjI1MDFjZi02NjBiLTQyOTMtYjFlYS00YTcxN2Q0NDdlZGEiLCJpZF9uYW1lc3BhY2UiOiJodHRwOi8vZGF0YS5nb3YuZGsvYmJyL2VuaGVkIiwia29tbXVuZWtvZGUiOiIwNzQwIiwib3BnYW5nIjoiMjYxM2E4YmYtNmM1Ny00OTQzLTliY2EtZGYzM2Q3Yzc5ZmJmIiwicmVnaXN0cmVyaW5nRnJhIjoiMjAxOC0wOS0xNFQxOToxNjozOS4xMTY2NjcrMDI6MDAiLCJyZWdpc3RyZXJpbmdzYWt0w7hyIjoiQkJSIiwic3RhdHVzIjoiNiIsInZpcmtuaW5nRnJhIjoiMjAxOC0wOS0xNFQxOToxNjozOS4xMTY2NjcrMDI6MDAiLCJ2aXJrbmluZ3Nha3TDuHIiOiJCQlIiLCJieWduaW5nIjoiZTZlY2M3MTEtYjYzNC00NWU5LWI5NWItYmQ5NWJhMDU2MTM0In1d
+  recorded_at: Wed, 02 Jun 2021 11:42:20 GMT
+recorded_with: VCR 6.0.0
