@@ -1,6 +1,6 @@
-require_relative 'authentication/no_authentication'
-require_relative 'authentication/credentials'
-require_relative 'bbr/building'
-require_relative 'bbr/unit'
-require_relative 'bbr/client'
+require_relative 'data_distributor/authentication/no_data_distributor/authentication'
+require_relative 'data_distributor/authentication/credentials'
+require_relative 'data_distributor/bbr/building'
+require_relative 'data_distributor/bbr/unit'
+require_relative 'data_distributor/bbr/client'
 
