@@ -6,6 +6,7 @@ Gem::Specification.new do |s|
   s.authors = '[Whitelabels.dk]'
   s.email = 'mail@whitelabels.dk'
   s.license = ''
+  s.files = Dir["lib/**/*.rb"]
 
   s.add_runtime_dependency "faraday", "~> 1.1.0"
   s.add_runtime_dependency "json"
