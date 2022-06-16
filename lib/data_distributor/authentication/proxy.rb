@@ -11,7 +11,7 @@ module DataDistributor
       end
 
       def apply(connection)
-        connection.use Middleware, proxy_host: proxy_host
+        connection.use(Middleware, proxy_host: proxy_host)
       end
 
       class Middleware < Faraday::Middleware
