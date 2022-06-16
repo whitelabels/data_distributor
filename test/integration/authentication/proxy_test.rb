@@ -3,7 +3,7 @@ require_relative "../../test_helper"
 describe DataDistributor::Authentication::Proxy do
   it "can apply the middleware to the connection" do
     connection = Minitest::Mock.new
-    connection.expect(:use, nil, [DataDistributor::Authentication::Proxy::Middleware, proxy_host: URI("http://example.com:9000")])
+    connection.expect(:use, nil, [DataDistributor::Authentication::Proxy::Middleware, { proxy_host: URI("http://example.com:9000") }])
     DataDistributor::Authentication::Proxy.new(proxy_host: "http://example.com:9000").apply(connection)
     connection.verify
   end
