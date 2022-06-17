@@ -11,7 +11,7 @@ describe DataDistributor::CPR::Address do
   end
 
   it "returns building number" do
-    _(subject.building_number).must_equal(12)
+    _(subject.building_number).must_equal("012")
   end
 
   it "returns floor" do

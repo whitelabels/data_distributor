@@ -35,8 +35,5 @@ describe DataDistributor::CPR::Client do
       end
     end
   end
-
-
-
 end
 

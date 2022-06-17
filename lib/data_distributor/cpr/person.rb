@@ -1,21 +1,26 @@
 module DataDistributor
   module CPR
+    #This class represents a person as known by cpr
     class Person
       attr_reader :data, :cpr
 
+      # @param [Dataset]
       def initialize(data, cpr:)
         @data = data
         @cpr = cpr
       end
 
+      # Person's first name(s)
       def first_name
         data[:Person][:Navn][:fornavne]
       end
 
+      # Person's last name
       def last_name
         data[:Person][:Navn][:efternavn]
       end
 
+      # returns a Date object with the full date of birth, including century, which is not apparent in the cpr-number
       def date_of_birth
         @date_of_birth ||= begin
           day = cpr[0..1].to_i
@@ -50,6 +55,7 @@ module DataDistributor
         end
       end
 
+      # Person's age in years
       def age
         @age ||= begin
                    today = Time.now.to_date
@@ -57,15 +63,19 @@ module DataDistributor
                  end
       end
 
+      # Person is adult, but under guardianship
       def under_guardianship?
         !data[:Person][:Vaergemaal].nil?
       end
 
+      # Person's address information
       def address
-        if data.dig(:Person, :Adresseoplysninger, :CprAdresse).nil?
-          nil
-        else
-          Address.new(data[:Person][:Adresseoplysninger][:CprAdresse])
+        @address ||= begin
+          if data.dig(:Person, :Adresseoplysninger, :CprAdresse).nil?
+            nil
+          else
+            Address.new(data[:Person][:Adresseoplysninger][:CprAdresse])
+          end
         end
       end
     end
