@@ -54,8 +54,8 @@ module DataDistributor
         end
       end
 
-      # Person's age in years
-      def age
+      # @return [Integer]
+      def age_in_years
         @age ||= begin
                    today = Time.now.to_date
                    today.year - date_of_birth.year - (today.strftime('%m%d') < date_of_birth.strftime('%m%d') ? 1 : 0)
