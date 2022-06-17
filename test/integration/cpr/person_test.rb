@@ -19,7 +19,7 @@ describe DataDistributor::CPR::Person do
   end
 
   it "returns first name" do
-    _(subject.first_name).must_equal("Hans")
+    _(subject.first_names).must_equal("Hans")
   end
 
   it "returns date of birth" do
