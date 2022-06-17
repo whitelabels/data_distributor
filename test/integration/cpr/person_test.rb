@@ -28,13 +28,13 @@ describe DataDistributor::CPR::Person do
 
   it "returns correct age on birthday" do
     Timecop.freeze(Time.local(2022,06,01)) do
-      _(subject.age).must_equal(37)
+      _(subject.age_in_years).must_equal(37)
     end
   end
 
   it "returns correct age the day before birthday" do
     Timecop.freeze(Time.local(2022, 05,31)) do
-      _(subject.age).must_equal(36)
+      _(subject.age_in_years).must_equal(36)
     end
   end
 
