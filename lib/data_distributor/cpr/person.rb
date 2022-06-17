@@ -20,7 +20,7 @@ module DataDistributor
         data[:Person][:Navn][:efternavn]
       end
 
-      # returns a Date object with the full date of birth, including century, which is not apparent in the cpr-number
+      # @return [Date] object with the full date of birth, including century, which is not apparent in the cpr-number
       def date_of_birth
         @date_of_birth ||= begin
           day = cpr[0..1].to_i
