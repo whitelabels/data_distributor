@@ -2,7 +2,7 @@ require_relative "../../test_helper"
 
 describe DataDistributor::CPR::Address do
   let (:subject) { DataDistributor::CPR::Address.new(data) }
-  let (:data) { { cprKommunekode:"0573", cprKommunenavn: "Varde", cprVejkode:"5731", husnummer: "012",
+  let (:data) { { cprKommunekode:"0573", cprKommunenavn: "Varde", cprVejkode:"5731", husnummer: "12",
                               postdistrikt: "Varde", postnummer:"6800", vejadresseringsnavn: "Boulevarden" ,
                               etage: "2"} }
 
@@ -11,7 +11,7 @@ describe DataDistributor::CPR::Address do
   end
 
   it "returns building number" do
-    _(subject.building_number).must_equal("012")
+    _(subject.building_number).must_equal("12")
   end
 
   it "returns floor" do
