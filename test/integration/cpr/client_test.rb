@@ -18,6 +18,7 @@ describe DataDistributor::CPR::Client do
     it "request on cpr_number" do
       VCR.use_cassette("cpr/person") do
         cpr.person(cpr:"0101851001")
+
       end
     end
 
@@ -28,7 +29,7 @@ describe DataDistributor::CPR::Client do
       end
     end
 
-    it "returns a person" do
+    it "returns nil if cpr invalid" do
       VCR.use_cassette("cpr/non_existing_person") do
         person = cpr.person(cpr:"0101851001")
         _(person).must_be_nil
