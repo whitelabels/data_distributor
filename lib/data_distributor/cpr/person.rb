@@ -10,8 +10,8 @@ module DataDistributor
         @cpr = cpr
       end
 
-      # Person's first name(s)
-      def first_name
+       # @return [String] first names separated by space
+      def first_names
         data[:Person][:Navn][:fornavne]
       end
 
