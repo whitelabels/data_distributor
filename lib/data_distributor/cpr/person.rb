@@ -15,7 +15,6 @@ module DataDistributor
         data[:Person][:Navn][:fornavne]
       end
 
-      # Person's last name
       def last_name
         data[:Person][:Navn][:efternavn]
       end
@@ -63,12 +62,11 @@ module DataDistributor
                  end
       end
 
-      # Person is adult, but under guardianship
+      # Person is under guardianship
       def under_guardianship?
         !data[:Person][:Vaergemaal].nil?
       end
 
-      # Person's address information
       def address
         @address ||= begin
           if data.dig(:Person, :Adresseoplysninger, :CprAdresse).nil?
