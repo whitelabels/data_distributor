@@ -2,7 +2,7 @@ require_relative "../../test_helper"
 
 describe DataDistributor::CPR::Address do
   let (:subject) { DataDistributor::CPR::Address.new(data) }
-  let (:data) { { cprKommunekode:"0573", cprKommunenavn: "Varde", cprVejkode:"5731", husnummer: "12",
+  let (:data) { { cprKommunekode:"0573", cprKommunenavn: "Varde", cprVejkode:"5731", husnummer: "012",
                               postdistrikt: "Varde", postnummer:"6800", vejadresseringsnavn: "Boulevarden" ,
                               etage: "2"} }
 

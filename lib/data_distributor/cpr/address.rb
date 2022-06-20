@@ -12,7 +12,7 @@ module DataDistributor
       end
 
       def building_number
-         data[:husnummer]
+        data[:husnummer].to_i.to_s
       end
 
       def floor_identification
