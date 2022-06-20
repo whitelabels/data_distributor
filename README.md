@@ -17,7 +17,8 @@ gem 'data_distributor'
 
 ## Usage
 
-CPR-client:
+### CPR-client:
+
 
 ````
 require 'data_distributor'
@@ -33,5 +34,18 @@ else
   puts "and lives on " + person.address.street_name + " " + person.address.building_number
 
 ````
+#### Proxy
+This example uses a http-proxy written in js.
 
-BBR-client:
+
+
+### BBR-client:
+````
+Description of BBR-client goes here
+````
+
+
+
+ToDo: development - opdatering af cassetter - opsætning - dependencies
+howto test - køre tests
+TODO: omdøbe master branch til Main
