@@ -19,7 +19,7 @@ module DataDistributor
 
       # create Person object based on information in Central Person Register (cpr)
       # @param [String] the cpr-number to check
-      # @return [Person] or nil
+      # @return [Person, nil]
       def person(cpr:)
         body = connection.get("PrivatePersonCurrentPNR", { "pnr.personnummer.eq" => cpr }).body
         data = JSON.parse(body, symbolize_names: true)[:Personer].first
