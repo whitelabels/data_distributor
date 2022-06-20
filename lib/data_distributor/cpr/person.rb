@@ -4,7 +4,7 @@ module DataDistributor
     class Person
       attr_reader :data, :cpr
 
-      # @param [Dataset]
+      # @param [Hash]
       def initialize(data, cpr:)
         @data = data
         @cpr = cpr
