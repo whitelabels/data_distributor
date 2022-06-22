@@ -1,6 +1,6 @@
 require 'data_distributor/authentication/no_authentication'
 require 'data_distributor/authentication/credentials'
-require 'data_distributor/authentication/proxy'
+require 'data_distributor/middleware/proxy'
 require 'data_distributor/bbr/building'
 require 'data_distributor/bbr/unit'
 require 'data_distributor/bbr/client'
