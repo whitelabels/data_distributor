@@ -18,7 +18,7 @@ describe DataDistributor::CPR::Client do
     it "request on cpr_number" do
       VCR.use_cassette("cpr/person") do
         cpr.person(cpr:"0101851001")
-
+        # Tests if a request can be made
       end
     end
 
@@ -37,4 +37,3 @@ describe DataDistributor::CPR::Client do
     end
   end
 end
-
