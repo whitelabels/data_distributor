@@ -1,7 +1,7 @@
 require_relative "../../test_helper"
 
 describe DataDistributor::CPR::Person do
-  let (:subject) { DataDistributor::CPR::Person.new(data, cpr:"0106851001") }
+  let (:subject) { DataDistributor::CPR::Person.new(data, cpr: "0106851001")}
   let (:data) { {Person:{ status:"bopael_i_danmark", Vaergemaal: "hansen",
                   Navn:{
                     adresseringsnavn:"Hans Hansen",efternavn: "Hansen", fornavne: "Hans", status: "aktuel" },
@@ -54,5 +54,26 @@ describe DataDistributor::CPR::Person do
 
   it "returns the address" do
     _(subject.address).must_be_instance_of DataDistributor::CPR::Address
+  end
+
+  describe "correct century in birth year" do
+    {0..3 => {0..36 => 1900, 37..57 => 1900, 58..99 => 1900},
+     4..4 => {0..36 => 2000, 37..57 => 1900, 58..99 => 1900},
+     5..8 => {0..36 => 2000, 37..57 => 2000, 58..99 => 1800},
+     9..9 => {0..36 => 2000, 37..57 => 1900, 58..99 => 1900}}.each do |century_digits, years_hash|
+
+      century_digits.each do |century_digit |
+        describe "based on 7th digit being #{century_digit}" do
+          years_hash.each do |year_range, century|
+            it "year: #{year_range}, century: #{century}" do
+              year = rand(year_range)
+              cpr = "0101#{"%02d" % year}#{century_digit}999"
+              person = DataDistributor::CPR::Person.new({}, cpr: cpr)
+              _(person.date_of_birth).must_equal Date.new(century + year, 1, 1)
+            end
+          end
+        end
+      end
+    end
   end
 end
