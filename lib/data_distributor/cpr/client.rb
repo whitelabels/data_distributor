@@ -1,4 +1,3 @@
-require "faraday"
 require "json"
 require "date"
 
@@ -8,13 +7,8 @@ module DataDistributor
     class Client
       attr_reader :connection
 
-
       def initialize(authentication=DataDistributor::Authentication::NoAuthentication.new)
-        @connection = Faraday.new(url: "https://services.datafordeler.dk/CPR/CprPrivatePNR/2.0.0/rest/") do |connection|
-          connection.use Faraday::Response::RaiseError
-          authentication.apply(connection)
-          connection.adapter Faraday.default_adapter
-        end
+        @connection = DataDistributor::Client.new("https://services.datafordeler.dk/CPR/CprPrivatePNR/2.0.0/rest/", authentication).connection
       end
 
       # create Person object based on information in Central Person Register (cpr)
@@ -22,6 +16,7 @@ module DataDistributor
       # @return [Person, nil]
       def person(cpr:)
         body = connection.get("PrivatePersonCurrentPNR", { "pnr.personnummer.eq" => cpr }).body
+
         data = JSON.parse(body, symbolize_names: true)[:Personer].first
         if data.nil?
           nil
