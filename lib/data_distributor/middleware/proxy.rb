@@ -2,7 +2,7 @@ require 'faraday'
 require 'uri'
 
 module DataDistributor
-  module Authentication
+  module Middleware
     class Proxy
       attr_reader :proxy_host
 

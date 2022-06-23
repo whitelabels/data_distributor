@@ -1,13 +1,13 @@
 require_relative "../../test_helper"
 
-describe DataDistributor::Authentication::Proxy do
+describe DataDistributor::Middleware::Proxy do
   it "can apply the middleware to the connection" do
     connection = Minitest::Mock.new
     connection.expect(:use, nil) do |middleware, options|
-      _(middleware).must_equal DataDistributor::Authentication::Proxy::Middleware
+      _(middleware).must_equal DataDistributor::Middleware::Proxy::Middleware
       _(options).must_equal({ proxy_host: URI("http://example.com:9000") })
     end
-    DataDistributor::Authentication::Proxy.new(proxy_host: "http://example.com:9000").apply(connection)
+    DataDistributor::Middleware::Proxy.new(proxy_host: "http://example.com:9000").apply(connection)
     connection.verify
   end
 
@@ -17,7 +17,7 @@ describe DataDistributor::Authentication::Proxy do
     env.expect(:url=, nil) { |url| _(url.scheme).must_equal("https")}
     app = Minitest::Mock.new
     app.expect(:call, nil, [env])
-    DataDistributor::Authentication::Proxy::Middleware.new(app, proxy_host: URI("https://example.com")).call(env)
+    DataDistributor::Middleware::Proxy::Middleware.new(app, proxy_host: URI("https://example.com")).call(env)
 
     env.verify
   end
@@ -28,7 +28,7 @@ describe DataDistributor::Authentication::Proxy do
     env.expect(:url=, nil) { |url| _(url.host).must_equal("example.org")}
     app = Minitest::Mock.new
     app.expect(:call, nil, [env])
-    DataDistributor::Authentication::Proxy::Middleware.new(app, proxy_host: URI("http://example.org")).call(env)
+    DataDistributor::Middleware::Proxy::Middleware.new(app, proxy_host: URI("http://example.org")).call(env)
 
     env.verify
   end
@@ -39,7 +39,7 @@ describe DataDistributor::Authentication::Proxy do
     env.expect(:url=, nil) { |url| _(url.port).must_equal(8009)}
     app = Minitest::Mock.new
     app.expect(:call, nil, [env])
-    DataDistributor::Authentication::Proxy::Middleware.new(app, proxy_host: URI("http://example.com:8009")).call(env)
+    DataDistributor::Middleware::Proxy::Middleware.new(app, proxy_host: URI("http://example.com:8009")).call(env)
 
     env.verify
   end
