@@ -8,9 +8,10 @@ Gem::Specification.new do |s|
   s.license = ""
   s.files = Dir["lib/**/*.rb"]
 
-  s.add_runtime_dependency "faraday", "~> 1.1.0"
+  s.add_runtime_dependency "faraday", [">= 0.15.4", "< 1.2"]
   s.add_runtime_dependency "json"
 
+  s.add_development_dependency "appraisal"
   s.add_development_dependency "minitest"
   s.add_development_dependency "rake"
   s.add_development_dependency "timecop"
