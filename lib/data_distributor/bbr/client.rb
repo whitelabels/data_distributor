@@ -1,4 +1,3 @@
-require "faraday"
 require "json"
 
 module DataDistributor
@@ -7,11 +6,7 @@ module DataDistributor
       attr_reader :connection
 
       def initialize(authentication=DataDistributor::Authentication::NoAuthentication.new)
-        @connection = Faraday.new(url: "https://services.datafordeler.dk/BBR/BBRPublic/1/rest/") do |connection|
-          connection.use Faraday::Response::RaiseError
-          authentication.apply(connection)
-          connection.adapter Faraday.default_adapter
-        end
+        @connection = DataDistributor::Client.new("https://services.datafordeler.dk/BBR/BBRPublic/1/rest/", authentication).connection
       end
 
       def units(address_identifier: nil, registration_from: nil, registration_to: nil)

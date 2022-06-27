@@ -3,7 +3,10 @@ require_relative "../../test_helper"
 describe DataDistributor::Authentication::Credentials do
   it "can apply the middleware to the connection" do
     connection = Minitest::Mock.new
-    connection.expect(:use, nil, [DataDistributor::Authentication::Credentials::Middleware, username: "SampleUsername", password: "SamplePassword"])
+    connection.expect(:use, nil) do |middleware, options|
+      _(middleware).must_equal DataDistributor::Authentication::Credentials::Middleware
+      _(options).must_equal({ username: "SampleUsername", password: "SamplePassword" })
+    end
 
     DataDistributor::Authentication::Credentials.new(username: "SampleUsername", password: "SamplePassword").apply(connection)
     connection.verify
