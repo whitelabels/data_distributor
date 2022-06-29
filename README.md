@@ -39,34 +39,6 @@ else
   puts "and lives on " + person.address.street_name + " " + person.address.building_number
 end
 ````
-#### Proxy
-This example uses a http-proxy written in js.
-
-````
-/**
- * Module dependencies.
- */
-
-var http = require('http'),
-    httpProxy = require('http-proxy');
-var fs = require('fs');
-
-/**
- * Create HTTP server.
- */
-
-httpProxy.createProxyServer({
-    target: {
-        protocol: 'https:',
-        host: 'Insert host name',
-        port: 443,
-        pfx: fs.readFileSync('Certificate ---.p12'),
-        passphrase: 'Password'
-    },
-    // secure: false,
-    changeOrigin: true
-}).listen(9060);
-````
 
 #### How to test
 
@@ -79,7 +51,10 @@ Description of BBR-client goes here
 ````
 
 
+<!--
 
 ToDo: development - opdatering af cassetter - opsætning - dependencies
 howto test - køre tests
 TODO: omdøbe master branch til Main
+
+-->
