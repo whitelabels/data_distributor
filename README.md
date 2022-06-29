@@ -37,7 +37,7 @@ if person.nil?
 else
   puts person.first_name + " " + person.last_name + " is " + person.age + " years old."
   puts "and lives on " + person.address.street_name + " " + person.address.building_number
-
+end
 ````
 #### Proxy
 This example uses a http-proxy written in js.
