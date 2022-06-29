@@ -28,7 +28,7 @@ It requires a certificate, which you can read more about here: https://cpr.dk/ku
 ````
 require 'data_distributor'
 
-client = DataDistributor::CPR::Client.new(DataDistributor::Authentication::Proxy.new(proxy_host: "http://localhost:9060"))
+client = DataDistributor::CPR::Client.new(DataDistributor::Middleware::Proxy.new(proxy_host: "http://localhost:9060"))
 
 person = client.person(cpr: "0101851001")
 
