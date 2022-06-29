@@ -23,7 +23,7 @@ None
 
 ### CPR-client
 With the gem, you can make queries into the Danish CPR registry and get information about a person based on CPR number.
-It requires a certificate, which you caan read more about here: https://cpr.dk/kunder/offentlige-myndigheder/datafordeler
+It requires a certificate, which you can read more about here: https://cpr.dk/kunder/offentlige-myndigheder/datafordeler
 
 ````
 require 'data_distributor'
