@@ -4,11 +4,9 @@ require "date"
 module DataDistributor
   module CPR
     # This class is used for retrieving data from the Danish CPR register
-    class Client
-      attr_reader :connection
-
-      def initialize(authentication=DataDistributor::Authentication::NoAuthentication.new)
-        @connection = DataDistributor::Client.new("https://services.datafordeler.dk/CPR/CprPrivatePNR/2.0.0/rest/", authentication).connection
+    class Client < DataDistributor::Client
+      def initialize(authentication=Authentication::NoAuthentication.new)
+        super("CPR/CprPrivatePNR/2.0.0/rest/", authentication)
       end
 
       # create Person object based on information in Central Person Register (cpr)

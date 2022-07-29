@@ -2,11 +2,9 @@ require "json"
 
 module DataDistributor
   module BBR
-    class Client
-      attr_reader :connection
-
-      def initialize(authentication=DataDistributor::Authentication::NoAuthentication.new)
-        @connection = DataDistributor::Client.new("https://services.datafordeler.dk/BBR/BBRPublic/1/rest/", authentication).connection
+    class Client < DataDistributor::Client
+      def initialize(authentication=Authentication::NoAuthentication.new)
+        super('BBR/BBRPublic/1/rest/', authentication)
       end
 
       def units(address_identifier: nil, registration_from: nil, registration_to: nil)
