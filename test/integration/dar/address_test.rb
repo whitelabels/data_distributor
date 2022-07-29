@@ -2,7 +2,11 @@ require_relative "../../test_helper"
 
 describe DataDistributor::DAR::Address do
   let(:subject) { DataDistributor::DAR::Address.new(data) }
-  let(:data) { { dørbetegnelse: "th", etagebetegnelse: "3", husnummer: { husnummertekst: "12", navngivenVej: { vejnavn: "Boulevarden" }, postnummer: { postnr: "6800", navn: "Varde" }, supplerendebynavn: { navn: "Gelllerup" } } } }
+  let(:data) { { dørbetegnelse: "th", etagebetegnelse: "3", id_lokalId: "8d00ef82-8aaf-458a-bbc2-232f8f989588", husnummer: { husnummertekst: "12", navngivenVej: { vejnavn: "Boulevarden" }, postnummer: { postnr: "6800", navn: "Varde" }, supplerendebynavn: { navn: "Gelllerup" } } } }
+
+  it "returns the id" do
+    _(subject.id).must_equal "8d00ef82-8aaf-458a-bbc2-232f8f989588"
+  end
 
   it "returns the street name" do
     _(subject.street_name).must_equal "Boulevarden"

@@ -7,6 +7,10 @@ module DataDistributor
         @data = data
       end
 
+      def id
+        data.dig(:id_lokalId)
+      end
+
       def street_name
         data.dig(:husnummer, :navngivenVej, :vejnavn)
       end
