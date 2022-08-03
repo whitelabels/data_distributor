@@ -30,7 +30,6 @@ module DataDistributor
       def city
         data[:postdistrikt]
       end
-
     end
   end
 end

@@ -1,10 +1,8 @@
 require_relative "../../test_helper"
 
 describe DataDistributor::CPR::Address do
-  let (:subject) { DataDistributor::CPR::Address.new(data) }
-  let (:data) { { cprKommunekode:"0573", cprKommunenavn: "Varde", cprVejkode:"5731", husnummer: "012",
-                              postdistrikt: "Varde", postnummer:"6800", vejadresseringsnavn: "Boulevarden" ,
-                              etage: "2"} }
+  let(:subject) { DataDistributor::CPR::Address.new(data) }
+  let(:data) { { husnummer: "012", postdistrikt: "Varde", postnummer:"6800", vejadresseringsnavn: "Boulevarden" , etage: "3", sidedoer: "th."} }
 
   it "returns street name" do
     _(subject.street_name).must_equal("Boulevarden")
@@ -15,7 +13,6 @@ describe DataDistributor::CPR::Address do
   end
 
   it "returns floor" do
-    data[:etage] = "3"
     _(subject.floor_identification).must_equal("3")
   end
 
@@ -25,8 +22,7 @@ describe DataDistributor::CPR::Address do
   end
 
   it "returns room" do
-    data[:sidedoer] = "Th."
-    _(subject.room_identification).must_equal("Th.")
+    _(subject.room_identification).must_equal("th.")
   end
 
   it "returns nil if no room" do
