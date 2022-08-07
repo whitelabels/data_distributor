@@ -28,7 +28,7 @@ It requires a certificate, which you can read more about here: https://cpr.dk/ku
 ````
 require 'data_distributor'
 
-client = DataDistributor::CPR::Client.new(DataDistributor::Middleware::Proxy.new(proxy_host: "http://localhost:9060"))
+client ||= DataDistributor::CPR::Client.new(DataDistributor::Middleware::Proxy.new(proxy_host: _proxy_))
 
 person = client.person(cpr: "0101851001")
 
@@ -39,11 +39,6 @@ else
   puts "and lives on " + person.address.street_name + " " + person.address.building_number
 end
 ````
-
-#### How to test
-
-Tests goes here
-
 
 ### BBR-client
 ````
