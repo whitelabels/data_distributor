@@ -76,4 +76,14 @@ describe DataDistributor::CPR::Person do
       end
     end
   end
+
+  it 'return nil if cpr is invalid' do
+    subject = DataDistributor::CPR::Person.new(data, cpr: "1234567890")
+    _(subject.date_of_birth).must_be_nil
+  end
+
+  it 'return 0 as age if cpr is invalid' do
+    subject = DataDistributor::CPR::Person.new(data, cpr: "1234567890")
+    _(subject.age_in_years).must_equal 0
+  end
 end

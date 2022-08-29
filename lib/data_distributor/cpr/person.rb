@@ -50,13 +50,15 @@ module DataDistributor
             end
           end
 
-          Date.new(year, month, day)
+          Date.new(year, month, day) rescue nil
         end
       end
 
       # @return [Integer]
       def age_in_years
         @age ||= begin
+                   return 0 if date_of_birth.nil?
+
                    today = Time.now.to_date
                    today.year - date_of_birth.year - (today.strftime('%m%d') < date_of_birth.strftime('%m%d') ? 1 : 0)
                  end
