@@ -59,9 +59,9 @@ module DataDistributor
           :liquid_fuel
         when "4"
           :solid_fuel
-        when "5"
-          :straw
         when "6"
+          :straw
+        when "7"
           :natural_gas
         else
           :other
