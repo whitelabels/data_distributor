@@ -163,20 +163,20 @@ describe DataDistributor::BBR::Building do
       _(subject.heating).must_equal :solid_fuel
     end
 
-    it "maps 5 to straw" do
-      data[:byg057Opvarmningsmiddel] = "5"
+    it "maps 6 to straw" do
+      data[:byg057Opvarmningsmiddel] = "6"
 
       _(subject.heating).must_equal :straw
     end
 
-    it "maps 6 to natural gas" do
-      data[:byg057Opvarmningsmiddel] = "6"
+    it "maps 7 to natural gas" do
+      data[:byg057Opvarmningsmiddel] = "7"
 
       _(subject.heating).must_equal :natural_gas
     end
 
-    it "maps 7 to other" do
-      data[:byg057Opvarmningsmiddel] = "7"
+    it "maps 8 to other" do
+      data[:byg057Opvarmningsmiddel] = "8"
 
       _(subject.heating).must_equal :other
     end
