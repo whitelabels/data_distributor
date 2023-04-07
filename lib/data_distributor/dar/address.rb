@@ -36,7 +36,7 @@ module DataDistributor
       end
 
       def city_sub_division_name
-        data.dig(:husnummer, :supplerendebynavn, :navn)
+        data.dig(:husnummer, :supplerendeBynavn, :navn)
       end
     end
   end
