@@ -139,46 +139,22 @@ describe DataDistributor::BBR::Building do
   end
 
   describe "heating" do
-    it "maps 1 to electricity" do
-      data[:byg057Opvarmningsmiddel] = "1"
+   [[1, nil, :remote_heating],
+    [5, 1, :electricity],
+    [2, 2, :gas],
+    [2, 3, :liquid_fuel],
+    [2, 4, :solid_fuel],
+    [2, 6, :straw],
+    [2, 7, :natural_gas],
+    [2, 8, :other],
+    [7, nil, :electricity],
+    [9, nil, :other]].map do |installation, agent, expectation|
+      it "maps installation=#{installation} agent=#{agent} to #{expectation}" do
+        data[:byg056Varmeinstallation] = installation.to_s
+        data[:byg057Opvarmningsmiddel] = agent.to_s
 
-      _(subject.heating).must_equal :electricity
-    end
-
-    it "maps 2 to gas" do
-      data[:byg057Opvarmningsmiddel] = "2"
-
-      _(subject.heating).must_equal :gas
-    end
-
-    it "maps 3 to liquid fuel" do
-      data[:byg057Opvarmningsmiddel] = "3"
-
-      _(subject.heating).must_equal :liquid_fuel
-    end
-
-    it "maps 4 to solid fuel" do
-      data[:byg057Opvarmningsmiddel] = "4"
-
-      _(subject.heating).must_equal :solid_fuel
-    end
-
-    it "maps 6 to straw" do
-      data[:byg057Opvarmningsmiddel] = "6"
-
-      _(subject.heating).must_equal :straw
-    end
-
-    it "maps 7 to natural gas" do
-      data[:byg057Opvarmningsmiddel] = "7"
-
-      _(subject.heating).must_equal :natural_gas
-    end
-
-    it "maps 8 to other" do
-      data[:byg057Opvarmningsmiddel] = "8"
-
-      _(subject.heating).must_equal :other
+        _(subject.heating).must_equal expectation
+      end
     end
   end
 end

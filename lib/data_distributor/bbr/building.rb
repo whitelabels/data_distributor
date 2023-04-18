@@ -50,20 +50,29 @@ module DataDistributor
       end
 
       def heating
-        case data[:byg057Opvarmningsmiddel]
+        case data[:byg056Varmeinstallation]
         when "1"
-          :electricity
-        when "2"
-          :gas
-        when "3"
-          :liquid_fuel
-        when "4"
-          :solid_fuel
-        when "6"
-          :straw
+          :remote_heating
+        when "2", "3", "5", "6", "8"
+          case data[:byg057Opvarmningsmiddel]
+          when "1"
+            :electricity
+          when "2"
+            :gas
+          when "3"
+            :liquid_fuel
+          when "4"
+            :solid_fuel
+          when "6"
+            :straw
+          when "7"
+            :natural_gas
+          else
+            :other
+          end
         when "7"
-          :natural_gas
-        else
+          :electricity
+        when "9"
           :other
         end
       end
