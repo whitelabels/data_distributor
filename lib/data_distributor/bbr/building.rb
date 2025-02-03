@@ -136,7 +136,7 @@ module DataDistributor
       def heating
         case data[:byg056Varmeinstallation]
           when "1"
-            :remote_heating
+            :district_heating
           when "2", "3", "5", "6", "8"
             case data[:byg057Opvarmningsmiddel]
               when "1"
