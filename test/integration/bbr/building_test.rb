@@ -17,7 +17,7 @@ describe DataDistributor::BBR::Building do
       end
     end
 
-    %w[130 131 132 140].each do |usage_code|
+    %w[130 131 132 140 150].each do |usage_code|
       it "maps #{usage_code} to apartment" do
         data[:byg021BygningensAnvendelse] = usage_code
 
@@ -25,19 +25,11 @@ describe DataDistributor::BBR::Building do
       end
     end
 
-    %w[150].each do |usage_code|
-      it "maps #{usage_code} to college" do
-        data[:byg021BygningensAnvendelse] = usage_code
-
-        _(subject.usage).must_equal :college
-      end
-    end
-
     %w[210 211 212 213 214 215 216 217 218 219 970].each do |usage_code|
       it "maps #{usage_code} to agricultire" do
         data[:byg021BygningensAnvendelse] = usage_code
 
-        _(subject.usage).must_equal :agricultire
+        _(subject.usage).must_equal :agriculture
       end
     end
 
@@ -113,11 +105,19 @@ describe DataDistributor::BBR::Building do
       end
     end
 
-    %w[510 520 521 522 523 529 540 585].each do |usage_code|
+    %w[510 520 523 529 540 585].each do |usage_code|
       it "maps #{usage_code} to holiday" do
         data[:byg021BygningensAnvendelse] = usage_code
 
         _(subject.usage).must_equal :holiday
+      end
+    end
+
+    %w[521 522].each do |usage_code|
+      it "maps #{usage_code} to commercial_holiday" do
+        data[:byg021BygningensAnvendelse] = usage_code
+
+        _(subject.usage).must_equal :commercial_holiday
       end
     end
 
@@ -139,7 +139,7 @@ describe DataDistributor::BBR::Building do
   end
 
   describe "heating" do
-   [[1, nil, :remote_heating],
+   [[1, nil, :district_heating],
     [5, 1, :electricity],
     [2, 2, :gas],
     [2, 3, :liquid_fuel],

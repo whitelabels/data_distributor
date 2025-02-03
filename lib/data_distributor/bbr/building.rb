@@ -33,7 +33,7 @@ module DataDistributor
                       222 => { description: "Bygning til industri uden integreret produktionsapparat", category: :industry },
                       223 => { description: "Værksted", category: :industry },
                       229 => { description: "Anden bygning til produktion", category: :industry },
-                      230 => { description: "(UDFASES) El-, gas-, vand- eller varmeværk, forbrændingsanstalt m.v.", category: :industry },
+                      230 => { description: "(UDFASES) El-, gas-, vand- eller varmeværk, forbrændingsanstalt m.v.", category: :energy_production },
                       231 => { description: "Bygning til energiproduktion", category: :energy_production },
                       232 => { description: "Bygning til energidistribution", category: :energy_production },
                       233 => { description: "Bygning til vandforsyning", category: :energy_production },
