@@ -9,7 +9,7 @@ describe DataDistributor::BBR::Building do
   end
 
   describe "usage" do
-    %w[110 120 121 122 190].each do |usage_code|
+    %w[110 120 121 122 185 190].each do |usage_code|
       it "maps #{usage_code} to house" do
         data[:byg021BygningensAnvendelse] = usage_code
 
@@ -129,7 +129,7 @@ describe DataDistributor::BBR::Building do
       end
     end
 
-    %w[185 590 910 920 930 940 950 960 990 999].each do |usage_code|
+    %w[590 910 920 930 940 950 960 990 999].each do |usage_code|
       it "maps #{usage_code} to other" do
         data[:byg021BygningensAnvendelse] = usage_code
 
@@ -148,7 +148,9 @@ describe DataDistributor::BBR::Building do
     [2, 7, :natural_gas],
     [2, 8, :other],
     [7, nil, :electricity],
-    [9, nil, :other]].map do |installation, agent, expectation|
+    [9, nil, :none],
+    [99, nil, :mixed],
+    [nil, nil, :other]].map do |installation, agent, expectation|
       it "maps installation=#{installation} agent=#{agent} to #{expectation}" do
         data[:byg056Varmeinstallation] = installation.to_s
         data[:byg057Opvarmningsmiddel] = agent.to_s
