@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name = "data_distributor"
-  s.version = "0.1.0"
+  s.version = "0.2.0"
   s.summary = "Bygnings- og boligregistret"
   s.description = "Lookup in Danish register of Buildings and Housing"
   s.authors = "[Whitelabels.dk]"
