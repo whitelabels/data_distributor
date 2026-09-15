@@ -5,8 +5,8 @@ module DataDistributor
   module CPR
     # This class is used for retrieving data from the Danish CPR register
     class Client < DataDistributor::Client
-      def initialize(authentication=Authentication::NoAuthentication.new)
-        super("CPR/CprPrivatePNR/2.0.0/rest/", authentication)
+      def initialize(authentication=Authentication::NoAuthentication.new, **request_options)
+        super("CPR/CprPrivatePNR/2.0.0/rest/", authentication, **request_options)
       end
 
       # create Person object based on information in Central Person Register (cpr)

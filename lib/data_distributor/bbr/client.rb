@@ -3,8 +3,8 @@ require "json"
 module DataDistributor
   module BBR
     class Client < DataDistributor::Client
-      def initialize(authentication=Authentication::NoAuthentication.new)
-        super('BBR/BBRPublic/1/rest/', authentication)
+      def initialize(authentication=Authentication::NoAuthentication.new, **request_options)
+        super('BBR/BBRPublic/1/rest/', authentication, **request_options)
       end
 
       def units(address_identifier: nil, registration_from: nil, registration_to: nil)

@@ -3,8 +3,8 @@ require "json"
 module DataDistributor
   module DAR
     class Client < DataDistributor::Client
-      def initialize(authentication=Authentication::NoAuthentication.new)
-        super("DAR/DAR/1/rest/", authentication)
+      def initialize(authentication=Authentication::NoAuthentication.new, **request_options)
+        super("DAR/DAR/1/rest/", authentication, **request_options)
       end
 
       def addresses(id:)
